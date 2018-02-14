@@ -1,0 +1,113 @@
+/* Container */
+
+.navicon-button {
+  cursor: pointer;
+  display: inline-block;
+  padding: 1px;
+  border: solid 1px;
+}
+
+a {
+  display: block;
+}
+
+/* STATE 1/2 */
+
+/* mid pin */
+
+.navicon {
+  position: relative;
+  width: 40px;
+  height: 4px;
+  background: #000;
+  border-radius: 20px;
+  margin: 30px 20px;
+  transition: 200ms;
+}
+
+
+/* top/bot pin */
+.navicon:before, .navicon:after {
+  display: block;
+  content: "";
+  width: 40px;
+  height: 4px;
+  background: #000;
+  position: absolute;
+  z-index: -1;
+  transition: 200ms cubic-bezier(0.0,0.0,0.2,1);
+  border-radius: 20px;
+}
+
+/* top pin */
+.navicon:before {
+  top: 8px;
+}
+
+/* bot pin */
+.navicon:after {
+  top: -8px;
+}
+
+
+
+/* STATE 2/2 */
+
+/* top pin */
+.open .navicon:before {
+  top: 5px !important;
+  transform: rotate(30deg);
+  width: 20px;
+  background: black;  
+}
+
+/* bot pin */
+.open .navicon:after {
+  top: -5px !important;
+  transform: rotate(-30deg);
+  width: 20px;
+  background: black;
+}
+
+/* mid pin */
+
+.open .navicon {
+  background: #000;
+  width: 30px;
+}
+
+
+
+
+
+/* HOVER STATE */
+
+.navicon-button:hover {
+  transition: 0.5s;
+  opacity: 1;
+}
+.navicon-button:hover .navicon:before, .navicon-button:hover .navicon:after {
+  transition: 200ms cubic-bezier(0.0,0.0,0.2,1);
+}
+.navicon-button:hover .navicon:before {
+  top: .825rem;
+}
+
+.navicon-button:hover .navicon:after {
+  top: -.825rem;
+}
+
+/* HOVER STATE on click */
+
+.open .navicon-button:hover .navicon:before {
+  right: 551rem !important;
+  top: 551rem !important;
+}
+.open .navicon-button:hover .navicon:after {
+  right: .01rem !important;
+  top: .01rem !important;
+}
+
+
+
+
